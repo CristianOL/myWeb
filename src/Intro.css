@@ -1,11 +1,63 @@
 
+#jumbo{  
+  position: relative;
+  z-index: 3;
+  display: inline-block;
+  right: -25%;
+  margin: 10% auto;
+  width: 50%;
+  background-color: transparent;
+  color: white;
+  text-align: center;
+  box-shadow: none;
+}
+
+.cristian{
+  font-size: 6vh;
+  font-weight: 400;
+  color: rgba(245,245,245 ,1);
+  text-shadow: 3px 3px 15px rgba(0,0,0,0.85);
+}
+
+.subtitle{
+  font-size: 3.5vh;
+  font-weight: 300;
+  color: rgba(224,224,224 ,1);
+  text-shadow: 3px 3px 15px rgba(0,0,0,0.85);
+}
+
+.subsubtitle{
+  font-size: 2.5vh;
+  font-weight: 300;
+  color: rgba(224,224,224 ,1);
+  text-shadow: 3px 3px 15px rgba(0,0,0,0.85);
+}
+
+#line{
+  border-bottom: 2px solid rgba(245,245,245 ,1);
+}
+
+#linked{
+  width: 70%;
+  border-bottom: 1px solid rgba(245,245,245 ,1);
+  color: rgba(245,245,245 ,1);
+  font-size: 2vh;
+  font-family: "Roboto", sans-serif;
+}
+
+#button{
+  color: rgba(245,245,245 ,1) !important;
+  font-size: x-large;
+}
+
+
 .gradient {
   background-image: linear-gradient(45deg, rgba(33,33,33 ,1), rgba(26,35,126 ,0.7) 100%);
   width: 100%;
   height: calc(100vh);
   object-fit: cover;
   position: absolute;
-  z-index: 1;
+  z-index: 2;
 }
 
 video {
@@ -14,4 +66,5 @@ video {
   bottom: 0;
   min-width: 100%; 
   min-height: 100%;
+  z-index: 1;
 }
