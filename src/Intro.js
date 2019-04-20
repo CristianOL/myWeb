@@ -1,9 +1,10 @@
 
-import React, { Component, Fragment } from 'react';
-import { MDBNavbar, MDBNavbarBrand, MDBNavbarNav, MDBNavItem, MDBNavLink, MDBNavbarToggler, MDBCollapse, MDBMask,
-  MDBRow, MDBCol, MDBIcon, MDBBtn, MDBInput, MDBView, MDBContainer, MDBJumbotron } from "mdbreact";
+import React, { Component } from 'react';
+import { ReactCSSTransitionGroup } from 'react-transition-group';
+import { MDBRow, MDBCol, MDBBtn, MDBInput, MDBContainer, MDBJumbotron} from "mdbreact";
 import './Intro.css';
-import 'mdbreact/dist/css/mdb.css'
+import 'mdbreact/dist/css/mdb.css';
+import axios from 'axios';
 
 class Background extends Component {
     render() {
@@ -22,9 +23,59 @@ class Background extends Component {
 }
 
 class Main extends Component {
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      access: '',
+      input_value: '',
+      
+      
+    }
+    
+    //this.handleClick = this.handleClick.bind(this);
+
+  }
+
+  componentDidMount() {
+
+  }
+  
+  handleClickButton = () => {
+    
+    axios.post('http://localhost:5000/',
+      {linkedIn: this.state.input_value
+    })
+    .then(response => {
+      this.setState({ access: response.data['access'] });
+    })
+    .catch(error => {
+      console.log(error);
+    });
+
+    console.log('access:', this.state.access);
+
+  }
+
+  handleClickInput = (event) => {
+    if (event.target.value === '') {
+
+      this.setState({ input_value: "https://es.linkedin.com/in/"});
+
+    }
+    console.log(this.state.input_value)
+  }
+
+  handleChange = (event) => {
+    this.setState({ input_value: event.target.value });
+    console.log(this.state.input_value)
+  }
+
+
     
   render() {
-    return (
+
+    return (       
 
       <MDBContainer className="mt-5 text-center">
         <MDBRow>
@@ -39,10 +90,12 @@ class Main extends Component {
                 Put your LinkedIn below and enjoy my web
               </p>
               <div>
-                <MDBInput id="linked" hint="LinkedIn" type="email" />
+                <MDBInput id="linked" hint="https://es.linkedin.com/in/" type="email" 
+                value={this.state.input_value} onChange={this.handleChange} 
+                onClick={this.handleClickInput} />
               </div>
               <p className="lead">
-                <MDBBtn id="button" outline color="info">Lets go!</MDBBtn>
+                <MDBBtn id="button" outline color="info" onClick={this.handleClickButton}>Lets go!</MDBBtn>
               </p>
             </MDBJumbotron>
           </MDBCol>
@@ -55,14 +108,36 @@ class Main extends Component {
 
 
 class Intro extends Component {
+
+  constructor(props) {
+    super(props);
+  }
+
+  hola = () =>{
+
+    console.log("hola")
+
+
+  }
+
   render() {
     return (
       <div>
       <Background />
-      <Main />
+      <ReactCSSTransitionGroup
+          transitionName="example"
+          transitionEnterTimeout={500}
+          transitionLeaveTimeout={300}>{
+      <Main />}
+      </ReactCSSTransitionGroup>
       </div>
     );
   }
 }
 
 export default Intro;
+
+
+
+
+
