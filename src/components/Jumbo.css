@@ -1,0 +1,60 @@
+
+#jumbo{  
+    position: relative;
+    z-index: 3;
+    display: inline-block;
+    right: 0%;
+    margin: 6% auto;
+    width: 70%;
+    background-color: transparent;
+    color: white;
+    text-align: center;
+    box-shadow: none;
+  }
+  
+  #cristian{
+    font-size: 8vh;
+    font-weight: 400;
+    color: rgba(245,245,245 ,1);
+    text-shadow: 3px 3px 15px rgba(0,0,0,0.85);
+  }
+  
+  #subtitle{
+    font-size: 3.5vh;
+    font-weight: 300;
+    color: rgba(224,224,224 ,1);
+    text-shadow: 3px 3px 15px rgba(0,0,0,0.85);
+  }
+  
+  #subsubtitle{
+    font-size: 2.5vh;
+    font-weight: 300;
+    color: rgba(224,224,224 ,1);
+    text-shadow: 3px 3px 15px rgba(0,0,0,0.85);
+  }
+  
+  #line{
+    border-bottom: 2px solid rgba(245,245,245 ,1);
+  }
+  
+  #linked{
+    width: 70%;
+    margin: 4% -15% 2% 15%;
+    border-bottom: 1px solid rgba(245,245,245 ,1);
+    color: rgba(245,245,245 ,1);
+    font-size: 2vh;
+    font-family: "Roboto", sans-serif;
+  }
+  
+  #button{
+    color: rgba(245,245,245 ,1) !important;
+    font-size: large;
+  }
+  
+  
+  
+  
+  
+  
+  
+  
