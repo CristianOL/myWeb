@@ -1,13 +1,56 @@
 
 #navbar {
-    z-index: 3;
+    z-index: 4;
 
 }
 
-#personal-color {
+#lines{
+    border-bottom: 3px solid rgba(13,71,161 ,1);
+    width: 30%;
+    border-radius: 10px;
+  }
+
+
+.navbar-color {
+    background-color: rgba(26,35,126 ,1);
+}
+
+#personal-color-white {
     color: rgba(245,245,245 ,1);
+}
+
+#personal-color-black {
+    color: rgba(33,33,33 ,1);
+}
+
+#personal-color-blue {
+    color: rgba(13,71,161 ,1);
+}
+
+#subtitle-main{
+    font-size: 3.5vh;
+    font-weight: 300;
+    color: rgba(224,224,224 ,1);
+    text-shadow: 3px 3px 15px rgba(0,0,0,0.85);
+  }
+
+#subsubtitle-main{
+    font-size: 2.5vh;
+    font-weight: 300;
+    color: rgba(224,224,224 ,1);
+    text-shadow: 3px 3px 15px rgba(0,0,0,0.85);
 
 }
+
+
+
+.first-section {
+
+    padding: 16vh 0 6vh 0;
+    
+}
+
+
 
 
 

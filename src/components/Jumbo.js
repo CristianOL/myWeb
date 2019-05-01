@@ -1,10 +1,18 @@
 
 import React, { Component } from 'react';
 import TransitionGroup, { CSSTransition } from 'react-transition-group';
-import { MDBRow, MDBCol, MDBBtn, MDBInput, MDBContainer, MDBJumbotron } from "mdbreact";
+import { MDBRow, MDBCol, MDBBtn, MDBInput, MDBContainer, MDBJumbotron, Button } from "mdbreact";
 import { Redirect } from "react-router-dom";
 import axios from 'axios';
 import './Jumbo.css';
+import Background from './Background';
+
+
+
+
+//const Fun = () => <div><Redirect to="/main" /></div>;
+
+
 
 
 class Jumbo extends Component {
@@ -12,7 +20,7 @@ class Jumbo extends Component {
     constructor(props) {
       super(props);
       this.state = {
-        access: '',
+        access: 'False',
         input_value: '',
         
         
@@ -22,9 +30,6 @@ class Jumbo extends Component {
   
     }
   
-    componentDidMount() {
-  
-    }
     
     handleClickButton = () => {
       
@@ -40,13 +45,9 @@ class Jumbo extends Component {
   
       console.log('access:', this.state.access);
 
-      
-
-      
-
-        
     }
-  
+
+      
     handleClickInput = (event) => {
       if (event.target.value === '') {
   
@@ -56,6 +57,7 @@ class Jumbo extends Component {
       console.log(this.state.input_value)
     }
   
+
     handleChange = (event) => {
       this.setState({ input_value: event.target.value });
       console.log(this.state.input_value)
@@ -65,11 +67,14 @@ class Jumbo extends Component {
       
     render() {
       
-      
+      let button;
+      button = <MDBBtn id="button" outline color="info" onClick={this.handleClickButton}>Lets go!</MDBBtn>
 
       return ( 
+        <>
+
+        
       
-  
         <MDBContainer className="mt-5 text-center">
           <MDBRow>
             <MDBCol>
@@ -88,13 +93,15 @@ class Jumbo extends Component {
                   onClick={this.handleClickInput} />
                 </div>
                 <p className="lead">
-                  <MDBBtn id="button" outline color="info" onClick={this.handleClickButton}>Lets go!</MDBBtn>
+                  {button}
+                  {this.state.access === 'True' ? ( <Redirect to="/main" /> ) : ( null )}
                 </p>
               </MDBJumbotron>
             </MDBCol>
           </MDBRow>
         </MDBContainer>
-  
+
+        </>
   
       );
     }

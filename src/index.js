@@ -5,6 +5,7 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import Rc from './components/Rc';
 import * as serviceWorker from './serviceWorker';
+import Background from './components/Background';
 
 
 
@@ -16,7 +17,7 @@ class App extends Component {
         <div>
           <BrowserRouter>
           <div>
-          
+            
             <Rc />
             
           </div>
