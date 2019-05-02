@@ -111,8 +111,12 @@ class Main extends React.Component {
 
         </div>
 
-        <MDBContainer className="mt-3 container-fluid d-flex align-items-center justify-content-center h-100">
-          <MDBRow className="first-section d-flex justify-content-center text-center">
+
+        <MDBContainer className="container-fluid align-items-center justify-content-center h-100">
+        
+        <section id="who-i-am">
+        
+            <MDBRow className="first-section d-flex justify-content-center text-center">
             <MDBCol md="12" className="mb-3 text-center">
                 <h1 className="h1-responsive" id="personal-color-blue">WHO I AM</h1>
                 <hr className="my-3" id="lines" />
@@ -126,12 +130,15 @@ class Main extends React.Component {
                     sunt in culpa qui officia deserunt mollit anim id est laborum.
                 </p>
             </MDBCol>
-          </MDBRow>
-        </MDBContainer>
+            </MDBRow>
+        
+        </section>
 
+        <section id="my-experience">
 
-        <MDBContainer className="mt-3 container-fluid d-flex align-items-center justify-content-center h-100">
-          <MDBRow className="first-section d-flex justify-content-center text-center">
+            <MDBContainer id="sections-color"></MDBContainer>
+
+            <MDBRow className="second-section d-flex justify-content-center text-center">
             <MDBCol md="12" className="mb-3 text-center">
                 <h1 className="h1-responsive" id="personal-color-blue">MY EXPERIENCE</h1>
                 <hr className="my-3" id="lines" />
@@ -145,8 +152,8 @@ class Main extends React.Component {
                     sunt in culpa qui officia deserunt mollit anim id est laborum.
                 </p>
             </MDBCol>
-          </MDBRow>
-        </MDBContainer>
+            </MDBRow>
+        
 
             
         
@@ -253,9 +260,10 @@ class Main extends React.Component {
             </MDBCol>
             </MDBRow>
         
-
+            </section>
         
 
+        </MDBContainer>
         </>
 
 

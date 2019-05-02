@@ -20,7 +20,7 @@
 }
 
 #personal-color-black {
-    color: rgba(33,33,33 ,1);
+    color: rgba(117,117,117 ,1);
 }
 
 #personal-color-blue {
@@ -45,15 +45,27 @@
 
 
 .first-section {
+    margin-top: 12rem;
+}
 
-    padding: 16vh 0 6vh 0;
-    
+.second-section {
+    margin-top: 4rem;
+}
+
+.third-section {
+    margin-top: 2rem;
 }
 
 
 
 
-
-
+#sections-color{
+    background-color: rgba(13,71,161 ,0.03);
+    position: absolute;
+    left: 0%;
+    top: 135%;
+    min-width: 100%; 
+    min-height: 100%;
+}
 
 
