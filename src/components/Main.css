@@ -10,6 +10,10 @@
     border-radius: 10px;
   }
 
+#lines-experience {
+    border-color: rgba(13,71,161 ,1);
+}
+
 
 .navbar-color {
     background-color: rgba(26,35,126 ,1);
@@ -20,6 +24,10 @@
 }
 
 #personal-color-black {
+    color: rgba(33,33,33 ,1);
+}
+
+#personal-color-grey {
     color: rgba(117,117,117 ,1);
 }
 
@@ -65,7 +73,7 @@
     left: 0%;
     top: 135%;
     min-width: 100%; 
-    min-height: 100%;
+    min-height: 250%;
 }
 
 

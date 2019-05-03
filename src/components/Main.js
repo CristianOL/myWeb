@@ -120,7 +120,7 @@ class Main extends React.Component {
             <MDBCol md="12" className="mb-3 text-center">
                 <h1 className="h1-responsive" id="personal-color-blue">WHO I AM</h1>
                 <hr className="my-3" id="lines" />
-                <p className="lead text-justify" id="personal-color-black">
+                <p className="lead text-justify" id="personal-color-grey">
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
                     eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
                     enim ad minim veniam, quis nostrud exercitation ullamco laboris
@@ -142,64 +142,26 @@ class Main extends React.Component {
             <MDBCol md="12" className="mb-3 text-center">
                 <h1 className="h1-responsive" id="personal-color-blue">MY EXPERIENCE</h1>
                 <hr className="my-3" id="lines" />
-                <p className="lead text-justify" id="personal-color-black">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                    eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-                    enim ad minim veniam, quis nostrud exercitation ullamco laboris
-                    nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
-                    in reprehenderit in voluptate velit esse cillum dolore eu fugiat
-                    nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-                    sunt in culpa qui officia deserunt mollit anim id est laborum.
-                </p>
+
             </MDBCol>
             </MDBRow>
-        
-
-            
         
 
             <MDBRow>
             <MDBCol lg="5" className="mb-lg-0 mb-5">
                 <img
-                src="https://mdbootstrap.com/img/Photos/Others/images/83.jpg"
+                src={require('../images/DS.jpg')}
                 alt=""
                 className="img-fluid rounded z-depth-1"
                 />
             </MDBCol>
             <MDBCol lg="7">
                 <MDBRow className="mb-3">
-                <MDBCol md="1" size="2">
-                    <MDBIcon far icon="chart-bar" size="2x" className="indigo-text" />
-                </MDBCol>
                 <MDBCol md="11" size="10">
-                    <h5 className="font-weight-bold mb-3">Marketing</h5>
-                    <p className="grey-text">
-                    Lorem ipsum dolor sit amet, consectetur adipisicing.
-                    Reprehenderit maiores nam, aperiam minima elit assumenda
-                    voluptate velit.
-                    </p>
-                </MDBCol>
-                </MDBRow>
-                <MDBRow className="mb-3">
-                <MDBCol md="1" size="2">
-                    <MDBIcon icon="music" size="2x" className="pink-text" />
-                </MDBCol>
-                <MDBCol md="11" size="10">
-                    <h5 className="font-weight-bold mb-3">Entertainment</h5>
-                    <p className="grey-text">
-                    Lorem ipsum dolor sit amet, consectetur adipisicing.
-                    Reprehenderit maiores nam, aperiam minima elit assumenda
-                    voluptate velit.
-                    </p>
-                </MDBCol>
-                </MDBRow>
-                <MDBRow className="mb-3">
-                <MDBCol md="1" size="2">
-                    <MDBIcon far icon="smile" size="2x" className="blue-text" />
-                </MDBCol>
-                <MDBCol md="11" size="10">
-                    <h5 className="font-weight-bold mb-3">Communication</h5>
-                    <p className="grey-text">
+                    <h5 className="h5-responsive mt-3 mb-3" id="personal-color-grey">MAY 2018 - MAY 2019</h5>
+                    <h5 className="font-weight-bold" id="personal-color-black">Data Scientist</h5>
+                    <h5 className="h5-responsive mb-3" id="personal-color-black"><em>BBVA Next Technologies - Madrid</em></h5>
+                    <p className="lead text-justify" id="personal-color-grey">
                     Lorem ipsum dolor sit amet, consectetur adipisicing.
                     Reprehenderit maiores nam, aperiam minima elit assumenda
                     voluptate velit.
@@ -208,57 +170,92 @@ class Main extends React.Component {
                 </MDBRow>
             </MDBCol>
             </MDBRow>
-            <hr className="my-5" />
+            <hr className="my-5" id="lines-experience" />
+            <MDBRow>
+            <MDBCol lg="8">
+                <MDBRow className="mb-3">
+                <MDBCol md="1">
+                
+                </MDBCol>
+                <MDBCol md="11" size="10">
+                    <h5 className="h5-responsive mt-3 mb-3" id="personal-color-grey">NOV 2017 - APR 2018</h5>
+                    <h5 className="font-weight-bold" id="personal-color-black">Computer Vision Researcher (ROC-SIANI)</h5>
+                    <h5 className="h5-responsive mb-3" id="personal-color-black"><em>Universidad de Las Palmas de Gran Canaria</em></h5>
+                    <p className="lead text-justify" id="personal-color-grey">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing.
+                    Reprehenderit maiores nam, aperiam minima elit assumenda
+                    voluptate velit.
+                    </p>
+                </MDBCol>              
+                </MDBRow>
+            </MDBCol>
+            <MDBCol lg="4" className="mb-lg-0 mb-5">
+                <img
+                src={require('../images/glasses.jpg')}
+                alt=""
+                className="img-fluid rounded z-depth-1"
+                />
+            </MDBCol>
+            </MDBRow>
+            <hr className="my-5" id="lines-experience" />
+        
+
+            <MDBRow>
+            <MDBCol lg="5" className="mb-lg-0 mb-5">
+                <img
+                src={require('../images/electric.jpg')}
+                alt=""
+                className="img-fluid rounded z-depth-1"
+                />
+            </MDBCol>
+            <MDBCol lg="7">
+                <MDBRow className="mb-3">
+                <MDBCol md="11" size="10">
+                    <h5 className="h5-responsive mt-3 mb-3" id="personal-color-grey">SEPT 2015 - MAR 2016</h5>
+                    <h5 className="font-weight-bold" id="personal-color-black">Indoor Commercial</h5>
+                    <h5 className="h5-responsive mb-3" id="personal-color-black"><em>Dielectro Canarias, S.A.U. - Las Palmas de Gran Canaria</em></h5>
+                    <p className="lead text-justify" id="personal-color-grey">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing.
+                    Reprehenderit maiores nam, aperiam minima elit assumenda
+                    voluptate velit.
+                    </p>
+                </MDBCol>
+                </MDBRow>
+            </MDBCol>
+            </MDBRow>
+            <hr className="my-5" id="lines-experience" />
             <MDBRow>
             <MDBCol lg="7">
                 <MDBRow className="mb-3">
-                <MDBCol md="1" size="2">
-                    <MDBIcon icon="book" size="2x" className="cyan-text" />
+                <MDBCol md="1">
+                
                 </MDBCol>
                 <MDBCol md="11" size="10">
-                    <h5 className="font-weight-bold mb-3">Education</h5>
-                    <p className="grey-text">
+                    <h5 className="h5-responsive mt-3 mb-3" id="personal-color-grey">FEB 2015 - APR 2015</h5>
+                    <h5 className="font-weight-bold" id="personal-color-black">Industrial Technician</h5>
+                    <h5 className="h5-responsive mb-3" id="personal-color-black"><em>Ilustre Ayuntamiento de la Villa de Ingenio - Las Palmas de Gran Canaria</em></h5>
+                    <p className="lead text-justify" id="personal-color-grey">
                     Lorem ipsum dolor sit amet, consectetur adipisicing.
                     Reprehenderit maiores nam, aperiam minima elit assumenda
                     voluptate velit.
                     </p>
-                </MDBCol>
-                </MDBRow>
-                <MDBRow className="mb-3">
-                <MDBCol md="1" size="2">
-                    <MDBIcon icon="code" size="2x" className="red-text" />
-                </MDBCol>
-                <MDBCol md="11" size="10">
-                    <h5 className="font-weight-bold mb-3">Technology</h5>
-                    <p className="grey-text">
-                    Lorem ipsum dolor sit amet, consectetur adipisicing.
-                    Reprehenderit maiores nam, aperiam minima elit assumenda
-                    voluptate velit.
-                    </p>
-                </MDBCol>
-                </MDBRow>
-                <MDBRow className="mb-3">
-                <MDBCol md="1" size="2">
-                    <MDBIcon far icon="money-bill-alt" size="2x" className="deep-purple-text" />
-                </MDBCol>
-                <MDBCol md="11" size="10">
-                    <h5 className="font-weight-bold mb-3">Finance</h5>
-                    <p className="grey-text">
-                    Lorem ipsum dolor sit amet, consectetur adipisicing.
-                    Reprehenderit maiores nam, aperiam minima elit assumenda
-                    voluptate velit.
-                    </p>
-                </MDBCol>
+                </MDBCol>              
                 </MDBRow>
             </MDBCol>
-            <MDBCol lg="5">
+            <MDBCol lg="5" className="mb-lg-0 mb-5">
                 <img
-                src="https://mdbootstrap.com/img/Photos/Others/images/82.jpg"
+                src={require('../images/plane.jpg')}
                 alt=""
                 className="img-fluid rounded z-depth-1"
                 />
             </MDBCol>
             </MDBRow>
+            
+
+
+        
+
+
         
             </section>
         
