@@ -1,11 +1,10 @@
 
 import React from "react";
-import { MDBNavbar, MDBNavbarBrand, MDBNavbarNav, MDBNavItem, MDBNavLink, 
-    MDBNavbarToggler, MDBCollapse, MDBDropdown, MDBDropdownToggle, 
-    MDBDropdownMenu, MDBDropdownItem, MDBIcon, MDBRow, MDBCol, MDBBtn, 
-    MDBInput, MDBContainer, MDBJumbotron, Button, MDBAnimation, MDBView, MDBMask } from 'mdbreact';
+import { MDBNavbar, MDBNavbarNav, MDBNavItem, MDBNavbarToggler, MDBCollapse, MDBIcon, 
+    MDBRow, MDBCol, MDBContainer, MDBView, MDBMask, MDBCardBody } from 'mdbreact';
 import "./Main.css";
-import Background from './Background';
+import { Link } from "react-scroll";
+
 
 
 import "@fortawesome/fontawesome-free/css/all.min.css";
@@ -41,8 +40,9 @@ class Main extends React.Component {
         <>
 
         
+        <header>
 
-        <div>
+
         <MDBNavbar
         id="navbar"
         color={"navbar-color"}
@@ -53,32 +53,93 @@ class Main extends React.Component {
         transparent
         >
         <MDBContainer>
-            <MDBNavbarBrand>
-                <strong id="personal-color-white">Cristian Ortega</strong>
-            </MDBNavbarBrand>
+            <Link className="navbar-brand" id="personal-color-white"
+            activeClass="active"
+            to="gradient"
+            spy={true}
+            smooth={true}
+            offset={-70}
+            duration={500}
+            >
+            <strong>Cristian Ortega</strong>
+            </Link>
             <MDBNavbarToggler onClick={this.toggleCollapse} />
             <MDBCollapse id="navbarCollapse3" isOpen={this.state.isOpen} navbar>
                 <MDBNavbarNav left>
                 <MDBNavItem active>
-                    <MDBNavLink to="#!" id="personal-color-white">Who I am</MDBNavLink>
+                    <Link className="nav-link" id="personal-color-white"
+                    activeClass="active"
+                    to=""
+                    spy={true}
+                    smooth={true}
+                    offset={-70}
+                    duration={500}
+                    >
+                    My projects
+                    </Link>
                 </MDBNavItem>
                 <MDBNavItem>
-                    <MDBNavLink to="#!" id="personal-color-white">My experience</MDBNavLink>
+                <MDBView className="overlay">
+                    <Link className="nav-link" id="personal-color-white"
+                    activeClass="active"
+                    to="who-i-am"
+                    spy={true}
+                    smooth={true}
+                    offset={-70}
+                    duration={500}
+                    >
+                    Who I am
+                    <MDBMask className="rgba-white-slight"></MDBMask>
+                    </Link>
+                </MDBView>
                 </MDBNavItem>
                 <MDBNavItem>
-                    <MDBNavLink to="#!" id="personal-color-white">Pricing</MDBNavLink>
+                <MDBView className="overlay">
+                    <Link className="nav-link" id="personal-color-white"
+                    activeClass="active"
+                    to="my-experience"
+                    spy={true}
+                    smooth={true}
+                    offset={-70}
+                    duration={500}
+                    >
+                    My experience
+                    <MDBMask className="rgba-white-slight"></MDBMask>
+                    </Link>
+                </MDBView>
+                </MDBNavItem>
+                <MDBNavItem>
+                <MDBView className="overlay">
+                    <Link className="nav-link" id="personal-color-white"
+                    activeClass="active"
+                    to="my-education"
+                    spy={true}
+                    smooth={true}
+                    offset={-70}
+                    duration={500}
+                    >
+                    My education
+                    <MDBMask className="rgba-white-slight"></MDBMask>
+                    </Link>
+                </MDBView>
                 </MDBNavItem> 
                 </MDBNavbarNav>
                 <MDBNavbarNav right>
                 <MDBNavItem>
-                    <MDBNavLink className="waves-effect waves-light" to="https://es.linkedin.com/in/cristianortegaleon">
+                <MDBView className="overlay">
+                    <a class="nav-link" href="https://es.linkedin.com/in/cristianortegaleon">
                     <MDBIcon fab icon="linkedin" id="personal-color-white" />
-                    </MDBNavLink>
+                    <MDBMask className="rgba-white-slight"></MDBMask>
+                    </a>
+                </MDBView>
                 </MDBNavItem>
                 <MDBNavItem>
-                    <MDBNavLink className="waves-effect waves-light" to="#!">
+                <MDBView className="overlay">
+                    <a class="nav-link" href="https://github.com/CristianOL">
                     <MDBIcon fab icon="github" id="personal-color-white" />
-                    </MDBNavLink>
+                    <MDBMask className="rgba-white-slight"></MDBMask>
+                    </a>
+                </MDBView>
                 </MDBNavItem>
                 </MDBNavbarNav>
             </MDBCollapse>
@@ -87,10 +148,10 @@ class Main extends React.Component {
         {this.state.isOpen && overlay}
         
         
-        <MDBContainer className="mt-5 text-center">
-            <MDBRow>
-                <MDBCol>
-                <MDBJumbotron id="jumbo">
+        <MDBContainer className="container-fluid align-items-center justify-content-center h-100 text-center">
+            <MDBRow className="main-section d-flex justify-content-center text-center">
+                <MDBCol md="12" className="mb-3 text-center" id="intro">
+                
                     <h1 className="h1-responsive display-3" id="cristian">Cristian Ortega</h1>
                     <p className="lead" id="subtitle-main">
                     Data Scientist | Machine Intelligence <br></br>
@@ -104,13 +165,15 @@ class Main extends React.Component {
                         <MDBIcon icon="chevron-down" size="2x" id="personal-color-white" 
                         className="animated pulse fast infinite" />
                     </p>
-                </MDBJumbotron>
+                
                 </MDBCol>
             </MDBRow>
         </MDBContainer>
 
-        </div>
+        </header>
 
+
+        <main>
 
         <MDBContainer className="container-fluid align-items-center justify-content-center h-100">
         
@@ -148,7 +211,7 @@ class Main extends React.Component {
         
 
             <MDBRow>
-            <MDBCol lg="5" className="mb-lg-0 mb-5">
+            <MDBCol lg="5" className="mb-lg-0">
                 <img
                 src={require('../images/DS.jpg')}
                 alt=""
@@ -189,7 +252,7 @@ class Main extends React.Component {
                 </MDBCol>              
                 </MDBRow>
             </MDBCol>
-            <MDBCol lg="4" className="mb-lg-0 mb-5">
+            <MDBCol lg="4" className="mb-lg-0">
                 <img
                 src={require('../images/glasses.jpg')}
                 alt=""
@@ -201,7 +264,7 @@ class Main extends React.Component {
         
 
             <MDBRow>
-            <MDBCol lg="5" className="mb-lg-0 mb-5">
+            <MDBCol lg="5" className="mb-lg-0">
                 <img
                 src={require('../images/electric.jpg')}
                 alt=""
@@ -242,7 +305,7 @@ class Main extends React.Component {
                 </MDBCol>              
                 </MDBRow>
             </MDBCol>
-            <MDBCol lg="5" className="mb-lg-0 mb-5">
+            <MDBCol lg="5" className="mb-lg-0">
                 <img
                 src={require('../images/plane.jpg')}
                 alt=""
@@ -251,16 +314,58 @@ class Main extends React.Component {
             </MDBCol>
             </MDBRow>
             
-
-
-        
-
-
-        
             </section>
         
+            <section id="my-education">
+
+            <MDBRow className="third-section d-flex justify-content-center text-center">
+            <MDBCol md="12" className="mb-3 text-center">
+                <h1 className="h1-responsive" id="personal-color-blue">MY EDUCATION </h1>
+                <hr className="my-3" id="lines" />
+
+            </MDBCol> 
+            </MDBRow>
+        
+            <MDBRow>
+            <MDBCol md="1"></MDBCol>
+            <MDBCol md="5" className="mb-lg-0">
+                <img
+                src={require('../images/siani.png')}
+                alt=""
+                className="img-fluid"
+                />
+                <MDBCardBody>
+                    <h5 className="h5-responsive mt-2 mb-3" id="personal-color-grey">SEPT 2016 - JAN 2018</h5>
+                    <h5 className="font-weight-bold" id="personal-color-black">MSc - Intelligent Systems and Numeric Applications</h5>
+                    <h5 className="h5-responsive mb-3" id="personal-color-black"><em>Universidad de Las Palmas de Gran Canaria</em></h5>   
+                </MDBCardBody>
+            </MDBCol>
+            
+            <MDBCol md="5" className="mb-lg-0">
+                <img
+                src={require('../images/ulpgc.gif')}
+                alt=""
+                className="img-fluid"
+                />        
+                <MDBCardBody>
+                    <h5 className="h5-responsive mt-2 mb-3" id="personal-color-grey">SEPT 2010 - SEPT 2015</h5>
+                    <h5 className="font-weight-bold" id="personal-color-black">BSc - Electrical Engineer</h5>
+                    <h5 className="h5-responsive mb-3" id="personal-color-black"><em>Universidad de Las Palmas de Gran Canaria</em></h5>   
+                </MDBCardBody>                    
+            </MDBCol>
+            <MDBCol md="1"></MDBCol>
+            </MDBRow>
+
+            
+            </section>
+
+
+
 
         </MDBContainer>
+
+        </main>
+
         </>
 
 

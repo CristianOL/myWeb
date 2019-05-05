@@ -51,17 +51,20 @@
 }
 
 
+.main-section{
+    margin-top: 30vh;
+}
 
 .first-section {
-    margin-top: 12rem;
+    margin-top: 40vmin;
 }
 
 .second-section {
-    margin-top: 4rem;
+    margin-top: 6%;
 }
 
 .third-section {
-    margin-top: 2rem;
+    margin-top: 6%;
 }
 
 
@@ -73,7 +76,14 @@
     left: 0%;
     top: 135%;
     min-width: 100%; 
-    min-height: 250%;
+    min-height: 450%;
 }
+
+
+#intro {
+    z-index: 2;
+}
+
+
 
 

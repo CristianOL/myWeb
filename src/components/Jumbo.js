@@ -75,10 +75,10 @@ class Jumbo extends Component {
 
         
       
-        <MDBContainer className="mt-5 text-center">
-          <MDBRow>
-            <MDBCol>
-              <MDBJumbotron id="jumbo">
+        <MDBContainer className="container-fluid align-items-center justify-content-center h-100 text-center">
+          <MDBRow className="main-section d-flex justify-content-center text-center">
+            <MDBCol md="12" className="mb-3 text-center" id="intro">
+            
                 <h1 className="h1-responsive display-3" id="cristian">Cristian Ortega</h1>
                 <p className="lead" id="subtitle">
                   Because learn-by-doing is my philosophy
@@ -96,7 +96,7 @@ class Jumbo extends Component {
                   {button}
                   {this.state.access === 'True' ? ( <Redirect to="/main" /> ) : ( null )}
                 </p>
-              </MDBJumbotron>
+            
             </MDBCol>
           </MDBRow>
         </MDBContainer>
