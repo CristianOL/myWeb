@@ -61,6 +61,7 @@ class Rc extends Component {
           <Jumbo />
         </>
         } />
+        
         <Route path="/main" component={() => 
         <>
           

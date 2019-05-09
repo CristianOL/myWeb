@@ -327,8 +327,8 @@ class Main extends React.Component {
             </MDBRow>
         
             <MDBRow>
-            <MDBCol md="1"></MDBCol>
-            <MDBCol md="5" className="mb-lg-0">
+            <MDBCol lg="1"></MDBCol>
+            <MDBCol lg="5" className="mb-lg-0">
                 <img
                 src={require('../images/siani.png')}
                 alt=""
@@ -341,11 +341,12 @@ class Main extends React.Component {
                 </MDBCardBody>
             </MDBCol>
             
-            <MDBCol md="5" className="mb-lg-0">
+            <MDBCol lg="5" className="mb-lg-0">
                 <img
                 src={require('../images/ulpgc.gif')}
                 alt=""
                 className="img-fluid"
+                style={{ margin: '0 0 19.08px 0',}}
                 />        
                 <MDBCardBody>
                     <h5 className="h5-responsive mt-2 mb-3" id="personal-color-grey">SEPT 2010 - SEPT 2015</h5>
@@ -353,7 +354,7 @@ class Main extends React.Component {
                     <h5 className="h5-responsive mb-3" id="personal-color-black"><em>Universidad de Las Palmas de Gran Canaria</em></h5>   
                 </MDBCardBody>                    
             </MDBCol>
-            <MDBCol md="1"></MDBCol>
+            <MDBCol lg="1"></MDBCol>
             </MDBRow>
 
             

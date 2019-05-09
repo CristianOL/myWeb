@@ -36,6 +36,8 @@
   #button{
     color: rgba(245,245,245 ,1) !important;
     font-size: large;
+    border-color: #0082ca !important;
+    text-transform: none;
   }
   
   
