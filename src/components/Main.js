@@ -1,7 +1,7 @@
 
 import React from "react";
 import { MDBNavbar, MDBNavbarNav, MDBNavItem, MDBNavbarToggler, MDBCollapse, MDBIcon, 
-    MDBRow, MDBCol, MDBContainer, MDBView, MDBMask, MDBCardBody } from 'mdbreact';
+    MDBRow, MDBCol, MDBContainer, MDBView, MDBMask, MDBCardBody, MDBNavLink } from 'mdbreact';
 import "./Main.css";
 import { Link } from "react-scroll";
 
@@ -124,7 +124,7 @@ class Main extends React.Component {
                 </MDBView>
                 </MDBNavItem> 
                 </MDBNavbarNav>
-                <MDBNavbarNav right>
+                <MDBNavbarNav right className="ml-auto nav-flex-icons">
                 <MDBNavItem>
                 <MDBView className="overlay">
                     <a class="nav-link" href="https://es.linkedin.com/in/cristianortegaleon">
@@ -140,6 +140,10 @@ class Main extends React.Component {
                     <MDBMask className="rgba-white-slight"></MDBMask>
                     </a>
                 </MDBView>
+                </MDBNavItem>
+                <MDBNavItem className="avatar ml-4">
+                    <img src="https://mdbootstrap.com/img/Photos/Avatars/avatar-5.jpg" 
+                    class="rounded-circle z-depth-0 p-0" alt="" height="35"></img>
                 </MDBNavItem>
                 </MDBNavbarNav>
             </MDBCollapse>

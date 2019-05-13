@@ -2,10 +2,11 @@
 import React, { Component } from 'react';
 import TransitionGroup, { CSSTransition } from 'react-transition-group';
 import { MDBRow, MDBCol, MDBBtn, MDBInput, MDBContainer, MDBIcon } from "mdbreact";
-import { withRouter } from "react-router-dom";
+import { withRouter, Redirect } from "react-router-dom";
+import { ClipLoader, PropagateLoader } from 'react-spinners';
+import { css } from '@emotion/core';
 import axios from 'axios';
 import './Jumbo.css';
-import Background from './Background';
 
 
 
@@ -21,11 +22,10 @@ class Jumbo extends Component {
       super(props);
       this.state = {
         authorization_url: null,
-        authorization_code: null,
-        access_main: null,
-
-
-        input_value: '',
+        render_access: false,
+        render_main: false,
+        render_is_loading: false,
+        render_error: false,
         
         
       }
@@ -45,12 +45,9 @@ class Jumbo extends Component {
     });
 
     
-    
+
     console.log(this.state);
     console.log('location:', this.props.location);
-  
-    
-
     console.log((this.props.location.search).substring(
       (this.props.location.search).indexOf('?code') + 6,
       (this.props.location.search).indexOf('&state')
@@ -58,38 +55,54 @@ class Jumbo extends Component {
     
 
 
-
-    if (this.props.location.search === ''){
-      console.log('Sin acceder todavía')
+    if (this.props.location.search === '') {
+      
+      this.setState({ render_access: true },
+          
+        () => { console.log(this.state) }  
+        
+      );
       
 
-    }else if ((this.props.location.search).indexOf('?code') === 0){
+    } else if ((this.props.location.search).indexOf('?code') === 0) {
 
-    axios.post('http://localhost:5000/authorization-code',
-      {authorization_code: (this.props.location.search).substring(
-        (this.props.location.search).indexOf('?code') + 6,
-        (this.props.location.search).indexOf('&state'))
-    })
-      .then(response => {
-       {/*  this.setState({ access_main: response.data['access_main'] });  */}
-    })
-      .catch(error => {
-        console.log(error);
-    });
+        axios.post('http://localhost:5000/authorization-code',
+          {authorization_code: 
+            (this.props.location.search).substring(
+            (this.props.location.search).indexOf('?code') + 6,
+            (this.props.location.search).indexOf('&state'))
+        })
+          .then(response => {
 
-    console.log(this.state);
-    
+          this.setState({ render_main: response.data['render_main'] },
+            
+            () => { console.log(this.state) }
+          
+          ); 
+          
+        })
+          .catch(error => {
+            console.log(error);
+        });
+
+        this.setState({ render_is_loading: true },
+            
+          () => { console.log(this.state) }
+      
+        );
 
 
 
+    } else if ((this.props.location.search).indexOf('?error') === 0) {
 
-    }else if ((this.props.location.search).indexOf('?error') === 0){
-
-
+        this.setState({ render_error: true },
+          
+          () => { console.log(this.state) }  
+          
+        );
 
 
     }
-
 
     }
 
@@ -160,11 +173,15 @@ class Jumbo extends Component {
       
       button = <a href={this.state.authorization_url}>
                <MDBBtn className="mt-3" id="button" outline>
-               <MDBIcon fab icon="linkedin" className="pr-3" size="1x" /> Sign In with LinkedIn
+               <MDBIcon fab icon="linkedin" className="pr-3" size="1x" />Log in with LinkedIn
                </MDBBtn> 
                </a>
 
+
+      if (this.state.render_access === true && this.state.render_main === false && this.state.render_error === false){
+
       return ( 
+        
         <>
 
         <MDBContainer className="container-fluid align-items-center justify-content-center h-100 text-center">
@@ -177,7 +194,7 @@ class Jumbo extends Component {
                 </p>
                 <hr className="my-2" id="line" />
                 <p className="lead" id="subsubtitle">
-                  Put your LinkedIn below and enjoy my web
+                  Log in using your linkedIn account and enjoy my website
                 </p>
                 {/* <div>
                   <MDBInput id="linked" hint="https://es.linkedin.com/in/" type="url" 
@@ -187,7 +204,7 @@ class Jumbo extends Component {
                 <div>
 
                   {button}
-                  {/* {this.state.access === 'True' ? ( <Redirect to="/main" /> ) : ( null )} */}
+        
                 </div>
             
             </MDBCol>
@@ -198,6 +215,99 @@ class Jumbo extends Component {
   
       );
     }
+
+
+    else if (this.state.render_access === false && this.state.render_main === false && this.state.render_error === true){
+
+      return (
+
+        <>
+
+        <MDBContainer className="container-fluid align-items-center justify-content-center h-100 text-center">
+          <MDBRow className="main-section d-flex justify-content-center text-center">
+            <MDBCol md="12" className="mb-3 text-center" id="intro">
+            
+                <h1 className="h1-responsive display-3" id="cristian">Cristian Ortega</h1>
+                <p className="lead" id="subtitle">
+                  Because learn-by-doing is my philosophy
+                </p>
+                <hr className="my-2" id="line" />
+                <p className="lead" id="subsubtitle">
+                  Log in using your linkedIn account and enjoy my website
+                </p>
+                {/* <div>
+                  <MDBInput id="linked" hint="https://es.linkedin.com/in/" type="url" 
+                  value={this.state.input_value} onChange={this.handleChange} 
+                  onClick={this.handleClickInput} />
+                </div> */}
+                <div>
+                  {button}        
+                </div>
+                <p className="lead mt-5 animated pulse slow infinite" id="warning">
+                  HI, IN ORDER TO ACCESS THE WEB YOU MUST LOG IN !
+                </p>
+            </MDBCol>
+          </MDBRow>
+        </MDBContainer>
+
+        </>
+
+      );
+    }
+
+
+    else if (this.state.render_access === false && this.state.render_is_loading === true && this.state.render_error === false){
+
+      return (
+
+        <>
+
+        { this.state.render_main ? <Redirect to="/main" /> : 
+                
+        <MDBContainer className="container-fluid align-items-center justify-content-center h-100 text-center">
+          <MDBRow className="main-section d-flex justify-content-center text-center">
+            <MDBCol md="12" className="mb-3 text-center" id="intro">
+
+              <h1 className="h1-responsive display-3" id="cristian">Cristian Ortega</h1>
+
+              <div className='sweet-loading mt-4'>
+                <PropagateLoader
+                  css={{margin: 'auto auto auto 50%'}}
+                  sizeUnit={"vh"}
+                  size={1.5}
+                  color={'#4CAF50'}
+                  loading={true}
+                />
+              </div> 
+            
+            </MDBCol>
+          </MDBRow>
+        </MDBContainer>
+        
+        }
+        
+        
+        </>
+
+      );
+    
+    
+    } else {
+
+      return (
+
+        <>
+        </>
+
+      );
+
+
+
+    }
+
+
+    }
+
   }
   
 export default withRouter(Jumbo);

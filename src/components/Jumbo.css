@@ -40,9 +40,14 @@
     text-transform: none;
   }
   
+  #warning{
+    font-size: 3vh;
+    font-weight: 300;
+    color: rgba(239,83,80 ,1);
+    text-shadow: 3px 3px 15px rgba(0,0,0,0.85);
+  }
   
-  
-  
+
   
   
   
