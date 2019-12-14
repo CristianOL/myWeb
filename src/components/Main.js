@@ -4,6 +4,7 @@ import { MDBNavbar, MDBNavbarNav, MDBNavItem, MDBNavbarToggler, MDBCollapse, MDB
     MDBRow, MDBCol, MDBContainer, MDBView, MDBMask, MDBCardBody, MDBNavLink } from 'mdbreact';
 import "./Main.css";
 import { Link } from "react-scroll";
+import axios from 'axios';
 
 
 
@@ -17,14 +18,36 @@ class Main extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            isOpen: false,    
+            isOpen: false,
+            name: null,
+            surname: null,
 
         }
     }
 
+    componentDidMount() {
+
+    axios.get('http://localhost:5000/user-profile')
+      .then(response => {
+        this.setState({ name: response.data['name'],
+                        surname: response.data['surname'] 
+    },
+        () => { console.log(this.state) }
+        );
+    })
+      .catch(error => {
+        console.log(error);
+    });
+
+    }
+
+
+
+
     toggleCollapse = () => {
         this.setState({ isOpen: !this.state.isOpen });
     }
+
 
     render() {
 
@@ -141,9 +164,12 @@ class Main extends React.Component {
                     </a>
                 </MDBView>
                 </MDBNavItem>
-                <MDBNavItem className="avatar ml-4">
+                <MDBNavItem className="navbar-text ml-4 font-italic font-weight-bold" id="personal-color-white">
+                    {this.state.name + " " + this.state.surname}
+                </MDBNavItem>
+                <MDBNavItem className="avatar ml-2">
                     <img src="https://mdbootstrap.com/img/Photos/Avatars/avatar-5.jpg" 
-                    class="rounded-circle z-depth-0 p-0" alt="" height="35"></img>
+                    class="md-avatar rounded-circle z-depth-0" alt="" height="40"></img>
                 </MDBNavItem>
                 </MDBNavbarNav>
             </MDBCollapse>
