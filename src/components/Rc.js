@@ -3,57 +3,33 @@ import React, { Component } from "react";
 import { Switch, Route, withRouter, Redirect, Link } from "react-router-dom";
 import TransitionGroup, { CSSTransition } from "react-transition-group";
 
-
 import Background from "./Background";
 import Jumbo from "./Jumbo";
 import Main from "./Main"
 
-
-
-class Timer extends Component {
-  
-  constructor(props) {
-    super(props);
-    this.state = {
-      redirect: false,
-    }
-  }
-  
-  componentDidMount() {
-    this.id = setTimeout(() => this.setState({ redirect: true }), 1000)
-  }
-
-  componentWillUnmount() {
-    clearTimeout(this.id)
-  }
-
-  render() {
-    return (
-      this.state.redirect ? <Redirect to="/jumbo" /> : null
-    );
-  }
-}
-
-
-
-
-
+import store from '../store/store';
 
 
 class Rc extends Component {
 
-  constructor(props){
+  constructor(props) {
     super(props);
+  
+  }
+
+  componentDidUpdate() {
+
+    console.log(this.props)
+    console.log(this.state)
+    console.log(store.getState())
 
   }
-  
-  
-  render(){
+
+  render() {
+
     return (
+
       <Switch location={this.props.location}>
-
-        {/* <Route exact path="/" component={() => <div><Timer /></div>} /> */}
-
 
         <Route exact path="/" component={() =>
         <>
@@ -76,7 +52,6 @@ class Rc extends Component {
     );
   }
 }
-
 
 export default withRouter(Rc);
 

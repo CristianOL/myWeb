@@ -3,21 +3,40 @@ import React, { Component } from 'react';
 import './Background.css';
 import Sizes from 'react-sizes';
 
+import { compose } from 'redux';
+import { connect } from 'react-redux';
+import store from '../store/store';
+import { changeHeight } from '../actions/actions';
+
 
 class Background extends Component {
 
-    constructor(props){
+    constructor(props) {
       super(props);
       this.state = {
-        divStyle: { position: this.props.position, },
+        divStyle: { position: this.props.position }
 
       }
+    }
+
+    componentDidMount() {
+
+      console.log(this.props) 
+      console.log(this.state)
+
+      this.props.changeHeight(this.props.heightVariable)
+      console.log(store.getState())
+
     }
 
     componentDidUpdate() {
 
       console.log(this.props) 
+      console.log(this.state)
       
+      this.props.changeHeight(this.props.heightVariable)
+      console.log(store.getState())
+    
     }
 
     render() {
@@ -42,4 +61,18 @@ const mapSizesToProps = ({ height }) => ({
 
 })
 
-export default Sizes(mapSizesToProps)(Background);
+const mapDispatchToProps = {
+  
+  changeHeight: changeHeight
+
+};
+
+export default compose (
+
+  Sizes(mapSizesToProps),
+  connect(
+    null,
+    mapDispatchToProps
+  )
+
+)(Background);
