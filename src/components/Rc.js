@@ -20,7 +20,6 @@ class Rc extends Component {
   componentDidUpdate() {
 
     console.log(this.props)
-    console.log(this.state)
     console.log(store.getState())
 
   }

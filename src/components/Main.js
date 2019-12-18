@@ -1,16 +1,17 @@
 
 import React from "react";
 import { MDBNavbar, MDBNavbarNav, MDBNavItem, MDBNavbarToggler, MDBCollapse, MDBIcon, 
-    MDBRow, MDBCol, MDBContainer, MDBView, MDBMask, MDBCardBody, MDBNavLink } from 'mdbreact';
+    MDBRow, MDBCol, MDBContainer, MDBView, MDBMask, MDBCardBody } from 'mdbreact';
 import "./Main.css";
 import { Link } from "react-scroll";
 import axios from 'axios';
 
-
-
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import "bootstrap-css-only/css/bootstrap.min.css";
 import "mdbreact/dist/css/mdb.css";
+
+import { connect } from 'react-redux';
+import store from '../store/store';
 
 
 class Main extends React.Component {
@@ -27,6 +28,9 @@ class Main extends React.Component {
 
     componentDidMount() {
 
+    console.log(this.props)
+    console.log(store.getState())
+
     axios.get('http://localhost:5000/user-profile')
       .then(response => {
         this.setState({ name: response.data['name'],
@@ -41,6 +45,11 @@ class Main extends React.Component {
 
     }
 
+    componentDidUpdate() {
+
+        console.log(this.props)
+
+    }
 
 
 
@@ -404,12 +413,10 @@ class Main extends React.Component {
     }
 }
 
-export default Main;
+const mapStateToProps = (state) => ({
+    
+    heightVariable: state.heightReducer.height
 
+});
 
-
-
-
-
-
-
+export default connect(mapStateToProps, null)(Main);

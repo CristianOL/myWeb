@@ -22,7 +22,6 @@ class Background extends Component {
     componentDidMount() {
 
       console.log(this.props) 
-      console.log(this.state)
 
       this.props.changeHeight(this.props.heightVariable)
       console.log(store.getState())
@@ -31,8 +30,7 @@ class Background extends Component {
 
     componentDidUpdate() {
 
-      console.log(this.props) 
-      console.log(this.state)
+      console.log(this.props)
       
       this.props.changeHeight(this.props.heightVariable)
       console.log(store.getState())
