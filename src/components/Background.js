@@ -55,9 +55,9 @@ class Background extends Component {
 
 const mapSizesToProps = ({ height }) => ({
 
-  heightVariable: height,
+  heightVariable: height
 
-})
+});
 
 const mapDispatchToProps = {
   

@@ -22,36 +22,54 @@ class Main extends React.Component {
             isOpen: false,
             name: null,
             surname: null,
+            heightJumbo: null
 
         }
+
+        this.jumboDim = React.createRef()
+
     }
 
     componentDidMount() {
 
-    console.log(this.props)
-    console.log(store.getState())
+        axios.get('http://localhost:5000/user-profile')
+        .then(response => {
+            this.setState({ name: response.data['name'],
+                            surname: response.data['surname'] 
+        },
+            () => { console.log(this.state) }
+            );
+        })
+        .catch(error => {
+            console.log(error);
+        });
 
-    axios.get('http://localhost:5000/user-profile')
-      .then(response => {
-        this.setState({ name: response.data['name'],
-                        surname: response.data['surname'] 
-    },
-        () => { console.log(this.state) }
-        );
-    })
-      .catch(error => {
-        console.log(error);
-    });
+        this.heightJumbo()
+
+        console.log(this.props)
+        console.log(store.getState())
+        console.log(this.jumboDim.current.getBoundingClientRect().height)
 
     }
 
     componentDidUpdate() {
 
         console.log(this.props)
+        console.log(this.state)
+        console.log(this.jumboDim.current.getBoundingClientRect().height)
+
+        this.heightJumbo()
 
     }
 
+    heightJumbo = () => {
 
+        if (this.state.heightJumbo !== this.jumboDim.current.getBoundingClientRect().height) {
+
+            this.setState({ heightJumbo: this.jumboDim.current.getBoundingClientRect().height })
+
+        }
+    };
 
     toggleCollapse = () => {
         this.setState({ isOpen: !this.state.isOpen });
@@ -68,12 +86,24 @@ class Main extends React.Component {
         />
     );
 
+    const heightTopJumbo = { heightTopJumbo: this.props.heightBackground / 4 }; 
+    
+    const heightTopJumboStyle = {
+
+        'margin-top': heightTopJumbo.heightTopJumbo
+
+    };
+
+    const mainTopDistanceStyle = {
+
+        'margin-top': this.props.heightBackground - (heightTopJumbo.heightTopJumbo + this.state.heightJumbo)
+        
+    };
+
     return (
         <>
-
         
         <header>
-
 
         <MDBNavbar
         id="navbar"
@@ -186,7 +216,7 @@ class Main extends React.Component {
         </MDBNavbar>
         {this.state.isOpen && overlay}
         
-        
+        <div ref={this.jumboDim} style={heightTopJumboStyle}>
         <MDBContainer className="container-fluid align-items-center justify-content-center h-100 text-center">
             <MDBRow className="main-section d-flex justify-content-center text-center">
                 <MDBCol md="12" className="mb-3 text-center" id="intro">
@@ -208,18 +238,19 @@ class Main extends React.Component {
                 </MDBCol>
             </MDBRow>
         </MDBContainer>
+        </div>
 
         </header>
 
 
-        <main>
+        <main style={mainTopDistanceStyle}>
 
         <MDBContainer className="container-fluid align-items-center justify-content-center h-100">
         
         <section id="who-i-am">
         
-            <MDBRow className="first-section d-flex justify-content-center text-center">
-            <MDBCol md="12" className="mb-3 text-center">
+            <MDBRow className="d-flex justify-content-center text-center">
+            <MDBCol md="12" className="first-section mb-3 text-center">
                 <h1 className="h1-responsive" id="personal-color-blue">WHO I AM</h1>
                 <hr className="my-3" id="lines" />
                 <p className="lead text-justify" id="personal-color-grey">
@@ -413,9 +444,9 @@ class Main extends React.Component {
     }
 }
 
-const mapStateToProps = (state) => ({
+const mapStateToProps = ( state ) => ({
     
-    heightVariable: state.heightReducer.height
+    heightBackground: state.heightReducer.height
 
 });
 
