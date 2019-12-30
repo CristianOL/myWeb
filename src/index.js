@@ -9,6 +9,10 @@ import * as serviceWorker from './serviceWorker';
 import { Provider } from 'react-redux';
 import store from './store/store';
 
+// Para habilitar las sesiones en el backend
+import axios from 'axios';
+axios.defaults.withCredentials = true
+
 
 class App extends Component {
 
